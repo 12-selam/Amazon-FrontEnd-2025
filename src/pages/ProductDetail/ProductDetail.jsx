@@ -16,7 +16,7 @@ function ProductDetail() {
     const fetchProduct = async () => {
       setIsLoading(true);
       try {
-        const res = await axios.get(`${productUrl}/products/${productId}`);
+        const res = await axios.get(`${productUrl}/${productId}`);
         setProduct(res.data);
       } catch (err) {
         console.error("Error fetching product:", err);

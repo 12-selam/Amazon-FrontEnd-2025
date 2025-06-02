@@ -10,14 +10,16 @@ function Results() {
   const [results, setResults] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const { categoryName } = useParams();
+  console.log(categoryName)
 
   useEffect(() => {
     setIsLoading(true); // start loading
     axios
-      .get(`${productUrl}/products/category/${categoryName}`)
+      .get(`${productUrl}/category/${categoryName}`)
       .then((res) => {
         setResults(res.data);
         setIsLoading(false);
+        console.log(results)
       })
       .catch((err) => {
         // console.error(err);
