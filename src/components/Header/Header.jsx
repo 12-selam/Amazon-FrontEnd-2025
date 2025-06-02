@@ -55,7 +55,7 @@ const Header = () => {
               </select>
             </Link>
 
-            <Link to={!user ? "/auth" : "#"} className={classes.signin}>
+            <Link to={!user && "/auth"} className={classes.signin}>
             <div>
              {user ? (
               <>
@@ -70,7 +70,7 @@ const Header = () => {
             )}
             </div>     
             </Link>
-            <Link to="/payments">
+            <Link to="/payment">
               <p>Returns</p>
               <span>& Orders</span>
             </Link>

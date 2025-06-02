@@ -6,6 +6,7 @@ const ProtectedRoute = ( { children,msg, redirect}) => {
 
     const navigate = useNavigate();
     const [{ user }] = useContext(DataContext);
+    console.log("Check from protected route")
 
     useEffect(() => {
         if (!user) {
