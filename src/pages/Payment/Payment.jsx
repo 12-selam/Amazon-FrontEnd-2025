@@ -40,17 +40,18 @@ function Payment() {
       setProcessing(true);
       const response = await axiosInstance({
         method: "post",
-        url:`/payments/create?total=${totalPrice * 100}`,
+        url:`/payment/create?total=${totalPrice * 100}`,
       });
-      // console.log(response.data);
-      const clientSecret = response.data?.clientSecret;
+      
+      const clientSecret = response.data?.clentSecret;
+      console.log("clientSecret: ", clientSecret)
       //2.client side (react side confirmation)
       const { paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
         payment_method: {
           card: elements.getElement(CardElement),
         },
       });
-      // console.log(confirmation);
+      
       //3. after the confirmation --->order firstore database save,clear basket
 
       const orderRef = doc(
